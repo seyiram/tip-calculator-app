@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "./fonts/andalemo.ttf";
+import "./assets/fonts/overpass-mono-regular.otf";
 
 ReactDOM.render(
   <React.StrictMode>

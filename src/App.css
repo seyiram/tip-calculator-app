@@ -1,14 +1,14 @@
 @font-face {
-  font-family: "Andale Mono Regular";
-  src: local("Andale-Mono-Regular"),
-    url("./fonts/andalemo.ttf") format("truetype");
+  font-family: "Overpass Mono Regular";
+  src: local("Overpass Mono Regular"),
+    url("./assets/fonts/overpass-mono-regular.otf") format("opentype");
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Andale Mono Regular", sans-serif;
+  font-family: "Overpass Mono Regular", sans-serif;
 }
 
 body {
@@ -18,14 +18,21 @@ body {
   padding-top: 50px;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .container__img {
   display: block;
   margin: 0 auto;
   max-width: 70px;
 }
 .card {
-  width: 500px;
+  width: 550px;
   height: 300px;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,4 +43,156 @@ body {
   margin-left: auto;
   margin-right: auto;
   background-color: #fff;
+}
+
+.card__details {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 20px;
+}
+
+.card__details-bill {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 5px;
+}
+
+.card__details-amount {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 8px;
+}
+
+.card input {
+  text-align: right;
+  height: 28px;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  border: none;
+}
+.card__details-calculate-tip {
+  margin-left: 15px;
+}
+
+.card__details-select-tip {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card__details-buttons button,
+.card__details-buttons input {
+  width: 60px;
+  /* flex-basis: 33.33%; */
+  margin: 3px 3px;
+  max-width: 100%;
+  padding: 3px;
+  font-size: 12px;
+}
+
+.card__details-buttons button {
+  background-color: #00474b;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+}
+
+.card__details-buttons button:hover {
+  color: #00474b;
+  background-color: #9fe8df;
+}
+.card__details-buttons button:active {
+  background-color: #9fe8df;
+}
+
+.icon-1 {
+  background: url("./assets/images/icon-dollar-1.svg") no-repeat;
+  background-size: 6px;
+  background-position: 6px 9px;
+}
+
+.icon-2 {
+  background: url("./assets/images/icon-person.svg") no-repeat;
+  background-size: 7px;
+  background-position: 6px 9px;
+}
+
+.card__details-smalltext {
+  font-size: 11px;
+  margin: 5px 0;
+  font-weight: 700;
+  color: #00474b;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.card input:focus {
+  outline-color: #c5e4e7;
+}
+
+.card_details-calculate-tip-card {
+  width: 245px;
+  height: 250px;
+  background-color: #00474b;
+  border-radius: 8px;
+  margin-left: 5px;
+}
+
+.card__details-calculate-tip-content {
+  padding: 30px 25px;
+}
+
+.card__details-calculate-tip-content-title span {
+  color: #3f8187;
+}
+
+.card_details-calculate-tip-content-row-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card_details-calculate-tip-content-row-2 {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__details-calculate-tip-content-title {
+  font-size: 10px;
+  color: #fff;
+}
+
+.card__details-calculate-tip-content-amount {
+  color: #28c6ad;
+  font-size: 14px;
+}
+
+.card__details-calculate-tip-content-amount img {
+  width: 12px;
+}
+
+.card__details-calculate-tip-button  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.card__details-calculate-tip-button button {
+    padding: 5px;
+    width: 80%;
+    border-radius: 4px;
+    border: none;
+    background-color: #28c6ad;
+    margin-top: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #00474b;
 }
