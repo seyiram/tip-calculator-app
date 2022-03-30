@@ -5,19 +5,19 @@ import { useEffect, useState } from "react";
 const Card = () => {
   const tipArray = [5, 10, 15, 25, 50];
   const [bill, setBill] = useState(0);
-  const [tip, setTip] = useState(0);
+  const [tip, setTip] = useState(5);
   const [people, setPeople] = useState(1);
   const [tipAmount, setTipAmount] = useState(0);
   const [totalPerPerson, setTotalPerPerson] = useState(1);
 
   useEffect(() => {
     const handleTipCalculation = () => {
-      if(bill & people & tip) {
+      
         const tipAmt = (tip / 100) * bill;
         setTipAmount(tipAmt);
         const total = tipAmt / people;
-        setTotalPerPerson(Math.round(total));
-      }
+        setTotalPerPerson(Math.round(total) || 0);
+      
     };
     handleTipCalculation();
   }, [bill, people, tip]);
