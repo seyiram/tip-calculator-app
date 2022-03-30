@@ -30,26 +30,26 @@ body {
   max-width: 70px;
 }
 .card {
-  width: 550px;
-  height: 300px;
-  max-width: 100%;
+  width: auto;
+  max-width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   border-radius: 15px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px,
+    rgb(0 0 0 / 30%) 0px 3px 7px -3px;
   margin-top: 70px;
   margin-left: auto;
   margin-right: auto;
   background-color: #fff;
+  padding: 15px;
 }
 
 .card__details {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 0 20px;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .card__details-bill {
@@ -75,9 +75,9 @@ input {
   background-color: #f5f5f5;
   border: none;
 }
-.card__details-calculate-tip {
+/* .card__details-calculate-tip {
   margin-left: 15px;
-}
+} */
 
 .card__details-select-tip {
   display: flex;
@@ -136,16 +136,17 @@ input {
 }
 
 .card_details-calculate-tip-card {
-  width: 245px;
-  height: 250px;
+  width: 100%;
+  min-height: 250px;
+  height: auto;
   background-color: #00474b;
   border-radius: 8px;
-  margin-left: 5px;
+  padding: 1.2rem;
+  position: relative;
 }
 
-.card__details-calculate-tip-content {
-  padding: 30px 25px;
-}
+
+
 
 .card__details-calculate-tip-content-title span {
   color: #3f8187;
@@ -178,21 +179,55 @@ input {
   width: 12px;
 }
 
-.card__details-calculate-tip-button  {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
+
 
 .card__details-calculate-tip-button button {
-    padding: 5px;
-    width: 80%;
-    border-radius: 4px;
-    border: none;
-    background-color: #28c6ad;
-    margin-top: 12px;
-    cursor: pointer;
-    font-weight: 700;
-    color: #00474b;
+  padding: 5px;
+  border-radius: 4px;
+  border: none;
+  background-color: #28c6ad;
+  cursor: pointer;
+  font-weight: 700;
+  color: #00474b;
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  bottom: 1.2rem;
 }
+
+
+ /* phone */
+@media (max-width: 640px) {
+  .card__details-buttons {
+    gap: 0.5rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card {
+    max-width: 100%;
+    flex-direction: column;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+  .card__details {
+    gap: 1.5rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .card__details-buttons button {
+    width: 100%;
+  }
+
+  .card__details-buttons input {
+    width: 100%;
+  }
+
+}
+
+ 
