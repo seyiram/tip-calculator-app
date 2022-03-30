@@ -16,7 +16,7 @@ const Card = () => {
         const tipAmt = (tip / 100) * bill;
         setTipAmount(tipAmt);
         const total = tipAmt / people;
-        setTotalPerPerson(Math.round(total) || 0);
+        setTotalPerPerson(Math.round(total));
       
     };
     handleTipCalculation();
@@ -24,10 +24,10 @@ const Card = () => {
 
   const reset = () => {
     setBill(0);
-    setTip(0);
-    setPeople(0);
+    setTip(5);
+    setPeople(1);
     setTipAmount(0)
-    setTotalPerPerson(0)
+    setTotalPerPerson(1)
   };
 
   console.log("bill here", bill);
