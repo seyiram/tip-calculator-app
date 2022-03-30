@@ -30,9 +30,7 @@ const Card = () => {
     setTotalPerPerson(1)
   };
 
-  console.log("bill here", bill);
-  console.log("tip here", tip);
-  console.log("people here", people);
+ 
   return (
     <div className="container">
       <img src={logo} alt="logo" className="container__img" />
