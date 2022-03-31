@@ -1,27 +1,27 @@
 @font-face {
-  font-family: "Overpass Mono Regular";
-  src: local("Overpass Mono Regular"),
-    url("./assets/fonts/overpass-mono-regular.otf") format("opentype");
+  font-family: 'Overpass Mono Regular';
+  src: local('Overpass Mono Regular'),
+    url('./assets/fonts/overpass-mono-regular.otf') format('opentype');
 }
 
 * {
+  box-sizing: border-box;
+  font-family: 'Overpass Mono Regular', sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Overpass Mono Regular", sans-serif;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
   background-color: #c5e4e7;
+  height: 100vh;
   padding-top: 50px;
+  width: 100vw;
 }
 
 .container {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
 }
 
 .container__img {
@@ -31,20 +31,20 @@ body {
 }
 
 .card {
-  width: auto;
-  max-width: 60%;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: row;
+  background-color: #fff;
   border-radius: 15px;
   box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px,
     rgb(0 0 0 / 30%) 0px 3px 7px -3px;
-  margin-top: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  background-color: #fff;
+  margin-top: 70px;
+  max-width: 60%;
   padding: 15px;
+  width: auto;
 }
 
 .card__details {
@@ -55,8 +55,8 @@ body {
 
 .card__details-bill {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   margin: 0 5px;
 }
 
@@ -70,11 +70,11 @@ input {
 }
 
 .card input {
-  text-align: right;
-  height: 28px;
-  border-radius: 5px;
   background-color: #f5f5f5;
   border: none;
+  border-radius: 5px;
+  height: 28px;
+  text-align: right;
 }
 /* .card__details-calculate-tip {
   margin-left: 15px;
@@ -88,50 +88,50 @@ input {
 
 .card__details-buttons button,
 .card__details-buttons input {
-  width: 60px;
+  font-size: 12px;
   /* flex-basis: 33.33%; */
   margin: 3px 3px;
   max-width: 100%;
   padding: 3px;
-  font-size: 12px;
+  width: 60px;
 }
 
 .card__details-buttons button {
   background-color: #00474b;
-  color: #fff;
   border: none;
   border-radius: 3px;
+  color: #fff;
 }
 
 .card__details-buttons button:hover {
-  color: #00474b;
   background-color: #9fe8df;
+  color: #00474b;
 }
 
 .active-tip {
-  color: #00474b;
   background-color: #9fe8df !important;
+  color: #00474b;
 }
 
 .icon-1 {
-  background: url("./assets/images/icon-dollar-1.svg") no-repeat;
-  background-size: 6px;
+  background: url('./assets/images/icon-dollar-1.svg') no-repeat;
   background-position: 6px 9px;
+  background-size: 6px;
 }
 
 .icon-2 {
-  background: url("./assets/images/icon-person.svg") no-repeat;
-  background-size: 7px;
+  background: url('./assets/images/icon-person.svg') no-repeat;
   background-position: 6px 9px;
+  background-size: 7px;
 }
 
 .card__details-smalltext {
-  font-size: 11px;
-  margin: 5px 0;
-  font-weight: 700;
   color: #00474b;
-  margin-top: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  margin: 5px 0;
   margin-bottom: 5px;
+  margin-top: 20px;
 }
 
 .card input:focus {
@@ -139,13 +139,13 @@ input {
 }
 
 .card_details-calculate-tip-card {
-  width: 100%;
-  min-height: 250px;
-  height: auto;
   background-color: #00474b;
   border-radius: 8px;
+  height: auto;
+  min-height: 250px;
   padding: 1.2rem;
   position: relative;
+  width: 100%;
 }
 
 .card__details-calculate-tip-content-title span {
@@ -153,21 +153,21 @@ input {
 }
 
 .card_details-calculate-tip-content-row-1 {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .card_details-calculate-tip-content-row-2 {
-  display: flex;
-  margin-top: 30px;
-  justify-content: space-between;
   align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
 }
 
 .card__details-calculate-tip-content-title {
-  font-size: 10px;
   color: #fff;
+  font-size: 10px;
 }
 
 .card__details-calculate-tip-content-amount {
@@ -180,21 +180,21 @@ input {
 }
 
 .card__details-calculate-tip-button button {
-  padding: 5px;
-  border-radius: 4px;
-  border: none;
   background-color: #28c6ad;
+  border: none;
+  border-radius: 4px;
+  bottom: 1.2rem;
+  color: #00474b;
   cursor: pointer;
   font-weight: 700;
-  color: #00474b;
-  position: absolute;
   left: 1.2rem;
+  padding: 5px;
+  position: absolute;
   right: 1.2rem;
-  bottom: 1.2rem;
 }
 
-
- /* phone */
+/* Ideally you'd start with the phone and make the media queries for the desktop. */
+/* phone */
 @media (max-width: 640px) {
   .card__details-buttons {
     gap: 0.5rem;
@@ -225,7 +225,4 @@ input {
   .card__details-buttons input {
     width: 100%;
   }
-
 }
-
- 
