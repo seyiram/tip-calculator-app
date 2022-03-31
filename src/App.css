@@ -148,9 +148,6 @@ input {
   position: relative;
 }
 
-
-
-
 .card__details-calculate-tip-content-title span {
   color: #3f8187;
 }
@@ -181,8 +178,6 @@ input {
 .card__details-calculate-tip-content-amount img {
   width: 12px;
 }
-
-
 
 .card__details-calculate-tip-button button {
   padding: 5px;
