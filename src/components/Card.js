@@ -89,7 +89,7 @@ const Card = () => {
                 ))}
                 <input
                   onChange={handleSetTip}
-                  placeholder="0.00"
+                  placeholder="Custom"
                   type="number"
                   value={tip}
                 />
