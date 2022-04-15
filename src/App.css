@@ -76,9 +76,7 @@ input {
   height: 28px;
   text-align: right;
 }
-/* .card__details-calculate-tip {
-  margin-left: 15px;
-} */
+
 
 .card__details-select-tip {
   display: flex;
@@ -89,7 +87,6 @@ input {
 .card__details-buttons button,
 .card__details-buttons input {
   font-size: 12px;
-  /* flex-basis: 33.33%; */
   margin: 3px 3px;
   max-width: 100%;
   padding: 3px;

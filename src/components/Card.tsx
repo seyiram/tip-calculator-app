@@ -1,62 +1,34 @@
-import { useCallback, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, ChangeEvent } from "react";
 import iconDollar from "../assets/images/icon-dollar.svg";
 import logo from "../assets/images/logo.svg";
 
-// General:
-// You should be able to handle passing negative numbers to the custom tip
-// Same for number of people and tips. With people if you have 0 you'll have Infinity
-// Handle decimals better: for input 76 for 5% you'll get $3.8000000000000003, you can use toFixed(2) for that
-const tipArray = [5, 10, 15, 25, 50];
-const Card = () => {
-  // Declare the tipArray outside the component, otherwise every time the component re-renders it'll also recreate the array, which is unnecessary.
+interface Props {
+  bill: number;
+  handleSetBill(event: ChangeEvent<HTMLInputElement>): void;
+  handleReset(): void;
+  handleSetTip(event: ChangeEvent<HTMLInputElement>): void;
+  handleSetPeople(event: ChangeEvent<HTMLInputElement>): void;
+  setTip: Dispatch<SetStateAction<number>>;
+  people: number;
+  tip: number;
+  tipArray: number[];
+  tipAmount: number;
+  totalPerPerson: number;
+}
 
-  const [bill, setBill] = useState(0);
-  const [tip, setTip] = useState(5);
-  const [people, setPeople] = useState(1);
-  const [tipAmount, setTipAmount] = useState(0);
-  const [totalPerPerson, setTotalPerPerson] = useState(1);
-
-  // That is a very good use of useEffect
-  useEffect(() => {
-    // You can just have the 4 lines of logic inside this useEffect without needing to declare and call the function
-
-    const tipAmt = ((tip / 100) * bill).toFixed(2);
-    if (Number.isNaN(tipAmt)) return;
-    setTipAmount(tipAmt);
-    const total = tipAmt / people;
-    if (!Number.isFinite(total)) return;
-    setTotalPerPerson(total.toFixed(2));
-  }, [bill, people, tip]);
-
-  // wrap this into a usecallback
-  // usecallback will make this function not to be declared every time the component re-renders and that saves memory
-  // https://reactjs.org/docs/hooks-reference.html#usecallback
-  // also handleReset would be a better name
-  const handleReset = useCallback(() => {
-    setBill(0);
-    setTip(5);
-    setPeople(1);
-    setTipAmount(0.0);
-    setTotalPerPerson(0.0);
-  }, []);
-
-  const handleSetBill = useCallback((event) => {
-    event.preventDefault();
-    const value = event.target.value
-    setBill(value.replace(/[^\d]/, ""));
-  }, []);
-
-  const handleSetTip = useCallback((event) => {
-    event.preventDefault();
-    const value = event.target.value.replace(/[^\d]/, "");
-    setTip(value);
-  }, []);
-
-  const handleSetPeople = useCallback((event) => {
-    event.preventDefault();
-    const value = event.target.value.replace(/[^\d]/, "");
-    setPeople(value);
-  }, []);
+const Card = ({
+  bill,
+  handleSetBill,
+  handleReset,
+  handleSetTip,
+  handleSetPeople,
+  people,
+  setTip,
+  tip,
+  tipArray,
+  tipAmount,
+  totalPerPerson,
+}: Props) => {
   return (
     <div className="container">
       <img alt="logo" className="container__img" src={logo} />
@@ -67,12 +39,10 @@ const Card = () => {
               <span className="card__details-smalltext">Bill</span>
               <input
                 className="card__details-input icon icon-1"
-                id=""
-                // Every time you have a onChange function you can use the usecallback, otherwise every time the component re-renders it'll cause the function to be reassigned/redeclared
-                // So you'd have a handleSetBill (I'll make an example above)
                 onChange={handleSetBill}
                 type="number"
                 value={bill}
+                min="1"
               />
             </div>
             <div className="card__details-select-tip">
@@ -92,6 +62,7 @@ const Card = () => {
                   placeholder="Custom"
                   type="number"
                   value={tip}
+                  min="1"
                 />
               </div>
             </div>
@@ -101,6 +72,7 @@ const Card = () => {
               onChange={handleSetPeople}
               type="number"
               value={people}
+              min="1"
             />
           </div>
           <div className="card__details-calculate-tip">
