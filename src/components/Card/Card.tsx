@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, ChangeEvent } from "react";
-import iconDollar from "../assets/images/icon-dollar.svg";
-import logo from "../assets/images/logo.svg";
+import iconDollar from "../../assets/images/icon-dollar.svg";
+import logo from "../../assets/images/logo.svg";
 
 interface Props {
   bill: number;
@@ -30,7 +30,7 @@ const Card = ({
   totalPerPerson,
 }: Props) => {
   return (
-    <div className="container">
+    <div className="container" data-testid="card-container">
       <img alt="logo" className="container__img" src={logo} />
       <div className="card">
         <div className="card__details">
@@ -38,11 +38,13 @@ const Card = ({
             <div className="card__details-amount">
               <span className="card__details-smalltext">Bill</span>
               <input
+                aria-label="bill-input"
                 className="card__details-input icon icon-1"
                 onChange={handleSetBill}
                 type="number"
                 value={bill}
                 min="1"
+                step="1"
               />
             </div>
             <div className="card__details-select-tip">
@@ -58,21 +60,25 @@ const Card = ({
                   </button>
                 ))}
                 <input
+                  aria-label="tip-input"
                   onChange={handleSetTip}
                   placeholder="Custom"
                   type="number"
                   value={tip}
                   min="1"
+                  step="1"
                 />
               </div>
             </div>
             <span className="card__details-smalltext">Number of people</span>
             <input
+              aria-label="people-input"
               className=" card__details-input icon icon-2"
               onChange={handleSetPeople}
               type="number"
               value={people}
               min="1"
+              step="1"
             />
           </div>
           <div className="card__details-calculate-tip">

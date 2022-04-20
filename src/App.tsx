@@ -1,6 +1,6 @@
 import { FC, ChangeEvent, useCallback, useEffect, useState } from "react";
 import "./App.css";
-import Card from "./components/Card";
+import Card from "./components/Card/Card";
 
 const tipArray = [5, 10, 15, 25, 50];
 const App: FC = () => {
@@ -33,8 +33,7 @@ const App: FC = () => {
   const handleSetBill = useCallback(
     (event: ChangeEvent<HTMLInputElement>): void => {
       event.preventDefault();
-      const value = event.target.value;
-      setBill(Number(value.replace(/[^\d]/, "")));
+      setBill(Number(event.target.value));
     },
     []
   );
@@ -42,8 +41,7 @@ const App: FC = () => {
   const handleSetTip = useCallback(
     (event: ChangeEvent<HTMLInputElement>): void => {
       event.preventDefault();
-      const value = event.target.value.replace(/[^\d]/, "");
-      setTip(Number(value));
+      setTip(Number(event.target.value));
     },
     []
   );
@@ -51,8 +49,7 @@ const App: FC = () => {
   const handleSetPeople = useCallback(
     (event: ChangeEvent<HTMLInputElement>): void => {
       event.preventDefault();
-      const value = event.target.value.replace(/[^\d]/, "");
-      setPeople(Number(value));
+      setPeople(Number(event.target.value));
     },
     []
   );
